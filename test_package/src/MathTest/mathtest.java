@@ -1,5 +1,7 @@
 package test_package.src.MathTest;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.Random;
 //import java.security.SecureRandom;
 
@@ -31,8 +33,41 @@ public class mathtest {
         //Class intcls = int.class;
         //System.out.println(intcls.getFields());//包括父类
         //getField（包括父类） getDeclaredField（不包括父类）
+        try{
+        Field f1 = String.class.getDeclaredField("value");//不包括父类的field
+        f1.getName();//字段名称
+        f1.getType();//字段类型
+
+        //获取方法类似
+        //Method getMoethod(name,Class)
+
+        //通过反射调用方法
+        //String s = "Hello world!";
+        //Method m = String.class.getMethod("substring",int.class);//获取String substring(int)方法
+        //String r= (String) m.invoke(s,6);
 
 
+        //获取字段值（无法访问modifier with private final）
+        //String st = new String("im the string");
+        //System.out.println("the value of field: " + f1.get(st));
+
+        //字段的修饰符，int，不同的bit标识不同的含义
+        int m = f1.getModifiers();
+        System.out.println(Modifier.isFinal(m));
+        System.out.println(Modifier.isPublic(m));
+        System.out.println(Modifier.isProtected(m));
+        System.out.println(Modifier.isPrivate(m));
+        System.out.println(Modifier.isStatic(m));
+
+
+        }catch(NoSuchFieldException e){
+            //do nothing
+        }catch(SecurityException e){
+            //do nothing
+        } catch (IllegalArgumentException e) {
+            // do nothing
+            e.printStackTrace();
+        } 
 
     }
 
