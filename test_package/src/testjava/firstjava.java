@@ -4,9 +4,14 @@ import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
+//import java.lang.reflect.Field;
 import java.util.Arrays;
 //import java.util.Scanner;
 import java.util.StringJoiner;
+
+//import test_package.src.OtherTest.annotation;
+//import test_package.src.OtherTest.annotation.*;
+
 
 class Person {
     private String name;// 一个变量一个field
@@ -262,6 +267,14 @@ public class firstjava {
             System.out.println(day.dayValue);//显示enum常量自定义字段
         }
 
+
+
+        // //使用注解
+        // Person ps1 = new Person("zhang qz",23);
+        // for(Field field:ps1.getClass().getFields()){
+        //     annotation ant = field.getAnnotation(annotation.class);
+        //     if
+        // }
 
 
     }
